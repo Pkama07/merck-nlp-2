@@ -13,8 +13,24 @@
     padding-top: 2%;
 }
 
+#title-box {
+    margin-top: 7%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#title-text {
+    font-size: 30px;
+}
+
+#sub-text {
+    font-size: 20px;
+}
+
 #search{
-    margin-top: 20%;
+    margin-top: 5%;
     display: flex;
     flex-direction: column;
     width: 50%;

@@ -21,6 +21,10 @@ function App() {
         <div id='logo'>
           <Logo/>
         </div>
+        <div id="title-box">
+          <div id="title-text">Bioanalytical Procedure Database System</div>
+          <div id="sub-text">The Data Mine - Corporate Partners: Merck NLP</div>
+        </div>
         <div id='search'>
           <SearchBar renderResults={renderResults}/>
         </div>
