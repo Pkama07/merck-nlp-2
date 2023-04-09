@@ -12,6 +12,181 @@ import openai
 import re
 import csv
 
+
+# Paragraph/Special Requirments
+global bp_number
+bp_number = None
+
+global extraction_method
+extraction_method = None
+
+global mk_number
+mk_number = None
+
+global turbo_ionspray
+turbo_ionspray = None
+
+global polarity
+polarity = None
+
+global drug_lower_mz
+drug_lower_mz = None
+global drug_upper_mz
+drug_upper_mz = None
+
+global is_lower_mz
+is_lower_mz = None
+global is_upper_mz
+is_upper_mz = None
+
+global lloq
+lloq = None
+
+global regression_model
+regression_model = None
+
+global calibration_range_lower
+calibration_range_lower = None
+global calibration_range_upper
+calibration_range_upper = None
+global calibration_sample_volume
+calibration_sample_volume = None
+
+global dilutent
+dilutent = None
+global temperature_dilutent
+temperature_dilutent = None
+
+
+global anticoagulant_temperature
+anticoagulant_temperature = None
+
+global special_requirments
+special_requirments = None
+
+global author
+author = None
+
+
+
+# Global Variables for Tables [44]
+
+# Instrumentation
+global g_massspec_component
+global g_liquidhandling_component
+g_massspec_component = None
+g_liquidhandling_component = None
+
+# Category (General)
+global column_category
+global column_manufacturer
+column_category = None
+column_manufacturer = None
+
+# Category (Equipment)
+global microbalance_manufacturer
+global analytical_balance_manufacturer
+global refrigerated_centrifuge_manufacturer
+global pH_meter_manufacturer
+global platesealer_manufacturer
+microbalance_manufacturer = None
+analytical_balance_manufacturer = None
+refrigerated_centrifuge_manufacturer = None
+pH_meter_manufacturer = None
+platesealer_manufacturer = None
+
+# Category (Pipettes)
+global adjustable_pipettes_manufacturer
+global pipette_tips_manufacturer
+adjustable_pipettes_manufacturer = None
+pipette_tips_manufacturer = None
+
+# Category (Automation Supplies)
+global reagent_troughs_provider
+global automated_workstation_tips_provider
+reagent_troughs_provider = None
+automated_workstation_tips_provider = None
+
+# Reference Standards
+global analyte_l_parent
+global analyte_l_is
+global form_parent
+global form_is
+global molecular_weight_parent
+global molecular_weight_is
+global watson_id_parent
+global watson_id_is
+analyte_l_parent = None
+analyte_l_is = None
+form_parent = None
+form_is = None
+molecular_weight_parent = None
+molecular_weight_is = None
+watson_id_parent = None
+watson_id_is = None
+
+# Matrix/Species/Anticoagulant/Supplier
+global matrix
+global species
+global anticoagulant
+global supplier
+matrix = None
+species = None
+anticoagulant = None
+supplier = None
+
+# UPLC/LC
+global loop_option_settings
+global elution_settings
+global mobile_phase_a_settings
+global mobile_phase_b_settings
+loop_option_settings = None
+elution_settings = None
+mobile_phase_a_settings = None
+mobile_phase_b_settings = None
+
+# MS
+global ion_source_settings
+global ion_mode_settings
+global ionization_potential_settings
+global temperature_settings
+global mr_pause_settings
+global mr_settling_time_settings
+ion_source_settings = None
+ion_mode_settings = None
+ionization_potential_settings = None
+temperature_settings = None
+mr_pause_settings = None
+mr_settling_time_settings = None
+
+# Analyte 1
+global analyte_1
+global peak_height_1
+global retention_time_1
+analyte_1 = None
+peak_height_1 = None
+retention_time_1 = None
+
+# Analyte 2
+global analyte_2
+global peak_height_2
+global retention_time_2
+analyte_2 = None
+peak_height_2 = None
+retention_time_2 = None
+
+# Other Important Tables
+global table_standard_solution_id
+global table_qc_solution_id
+global table_qc_id
+global table_step
+global table_ions_monitored
+table_standard_solution_id = None
+table_qc_solution_id = None
+table_qc_id = None
+table_step = None
+table_ions_monitored = None
+
 OPENAI_API_KEY = ""
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -604,123 +779,7 @@ for df in unique_df_list:
   #print(df)
 
 
-# Global Variables for Tables [44]
 
-# Instrumentation
-global g_massspec_component
-global g_liquidhandling_component
-g_massspec_component = None
-g_liquidhandling_component = None
-
-# Category (General)
-global column_category
-global column_manufacturer
-column_category = None
-column_manufacturer = None
-
-# Category (Equipment)
-global microbalance_manufacturer
-global analytical_balance_manufacturer
-global refrigerated_centrifuge_manufacturer
-global pH_meter_manufacturer
-global platesealer_manufacturer
-microbalance_manufacturer = None
-analytical_balance_manufacturer = None
-refrigerated_centrifuge_manufacturer = None
-pH_meter_manufacturer = None
-platesealer_manufacturer = None
-
-# Category (Pipettes)
-global adjustable_pipettes_manufacturer
-global pipette_tips_manufacturer
-adjustable_pipettes_manufacturer = None
-pipette_tips_manufacturer = None
-
-# Category (Automation Supplies)
-global reagent_troughs_provider
-global automated_workstation_tips_provider
-reagent_troughs_provider = None
-automated_workstation_tips_provider = None
-
-# Reference Standards
-global analyte_l_parent
-global analyte_l_is
-global form_parent
-global form_is
-global molecular_weight_parent
-global molecular_weight_is
-global watson_id_parent
-global watson_id_is
-analyte_l_parent = None
-analyte_l_is = None
-form_parent = None
-form_is = None
-molecular_weight_parent = None
-molecular_weight_is = None
-watson_id_parent = None
-watson_id_is = None
-
-# Matrix/Species/Anticoagulant/Supplier
-global matrix
-global species
-global anticoagulant
-global supplier
-matrix = None
-species = None
-anticoagulant = None
-supplier = None
-
-# UPLC/LC
-global loop_option_settings
-global elution_settings
-global mobile_phase_a_settings
-global mobile_phase_b_settings
-loop_option_settings = None
-elution_settings = None
-mobile_phase_a_settings = None
-mobile_phase_b_settings = None
-
-# MS
-global ion_source_settings
-global ion_mode_settings
-global ionization_potential_settings
-global temperature_settings
-global mr_pause_settings
-global mr_settling_time_settings
-ion_source_settings = None
-ion_mode_settings = None
-ionization_potential_settings = None
-temperature_settings = None
-mr_pause_settings = None
-mr_settling_time_settings = None
-
-# Analyte 1
-global analyte_1
-global peak_height_1
-global retention_time_1
-analyte_1 = None
-peak_height_1 = None
-retention_time_1 = None
-
-# Analyte 2
-global analyte_2
-global peak_height_2
-global retention_time_2
-analyte_2 = None
-peak_height_2 = None
-retention_time_2 = None
-
-# Other Important Tables
-global table_standard_solution_id
-global table_qc_solution_id
-global table_qc_id
-global table_step
-global table_ions_monitored
-table_standard_solution_id = None
-table_qc_solution_id = None
-table_qc_id = None
-table_step = None
-table_ions_monitored = None
 
 
 # Extracts Values Given List of Rows and Columns [Named After Column]
@@ -977,60 +1036,6 @@ print(table_ions_monitored)
 
 # Non-table Global Variables
 
-# Paragraph/Special Requirments
-global bp_number
-bp_number = None
-
-global extraction_method
-extraction_method = None
-
-global mk_number
-mk_number = None
-
-global turbo_ionspray
-turbo_ionspray = None
-
-global polarity
-polarity = None
-
-global drug_lower_mz
-drug_lower_mz = None
-global drug_upper_mz
-drug_upper_mz = None
-
-global is_lower_mz
-is_lower_mz = None
-global is_upper_mz
-is_upper_mz = None
-
-global lloq
-lloq = None
-
-global regression_model
-regression_model = None
-
-global calibration_range_lower
-calibration_range_lower = None
-global calibration_range_upper
-calibration_range_upper = None
-global calibration_sample_volume
-calibration_sample_volume = None
-
-global dilutent
-dilutent = None
-global temperature_dilutent
-temperature_dilutent = None
-
-global anticoagulant
-anticoagulant = None
-global anticoagulant_temperature
-anticoagulant_temperature = None
-
-global special_requirments
-special_requirments = None
-
-global author
-author = None
 
 # ** Not going to make global variables for below sections since Merck keeps changing the document **
 
