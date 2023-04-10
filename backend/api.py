@@ -431,48 +431,48 @@ def generate_DB_content(searchString, tables, bp_number):
     bp_node = Node('BP', {'BP_number': bp_number})
     special_requirement_node = Node('SpecialRequirement', {'Requirements': special_requirements})
     instrumentationListNode = Node("Instrumentation",
-    {"Instrumentation": bp_number, "Mass Spectrometer": g_massspec_component, "LC": bp_number,
-    "Liquid Handling": g_liquidhandling_component, "Manufacturer": column_manufacturer, "LCcomponent": None})
-    reagentsListNode = Node("Reagents", {"Properties": {}})
-    solutionsListNode = Node("Solutions", {"Properties": {}})
-    calculationParametersListNode = Node("Calculation Parameters", {"Model": regression_model})
+    {"Instrumentation": bp_number, "Mass_Spectrometer": g_massspec_component, "LC": bp_number,
+    "Liquid_Handling": g_liquidhandling_component, "Manufacturer": column_manufacturer, "LCcomponent": None})
+    # reagentsListNode = Node("Reagents", {"Properties": {}})
+    # solutionsListNode = Node("Solutions", {"Properties": {}})
+    calculationParametersListNode = Node("Calculation_Parameters", {"Model": regression_model})
     instrumentationNode = Node("Instrumentation", {'BP_number': bp_number})
     massSpectrometerNode = Node("MassSpectrometer", {"Name": g_massspec_component})
-    LCNode = Node("LC", {"BP Number": bp_number})
+    LCNode = Node("LC", {"BP_Number": bp_number})
     liquidHandlingNode = Node("LiquidHandling", {"Name": g_liquidhandling_component})
     manufacturerNode = Node("Manufacturer", {"Name": column_manufacturer})
-    LCComponentNode = Node("LC Component", {"Name": None})
+    LCComponentNode = Node("LC_Component", {"Name": None})
     suppliesListNode = Node("Supplies", {"BP_Number": bp_number})
-    equipmentNode = Node("Equipment", {"Microbalance Manufacturer": microbalance_manufacturer,
-                                "Analytical Balance Manufacturer": analytical_balance_manufacturer,
-                                "Refrigerated Centrifuge Manufacturer": refrigerated_centrifuge_manufacturer,
-                                "pH Meter Manufacturer": pH_meter_manufacturer,
-                                "Platesealer Manufacturer": platesealer_manufacturer})
-    pipetteNode = Node("Pipettes", {"Adjustable Pipettes Manufacturer": adjustable_pipettes_manufacturer,
-    "Pipette Tips Manufacturer": pipette_tips_manufacturer})
-    automationSuppNode = Node("Automation Supplies", {"Reagent Troughs Provider": reagent_troughs_provider,
-    "Automated Workstation Tips Provider": automated_workstation_tips_provider})
-    compoundNode = Node("Compound", {"Analyte/L-Number": analyte_l_parent, "Form": form_parent, "Molecular_Weight": molecular_weight_parent, "Watson_ID": watson_id_parent})
-    epimerNode = Node("L-number", {"Property": analyte_l_parent})
+    equipmentNode = Node("Equipment", {"Microbalance_Manufacturer": microbalance_manufacturer,
+                                "Analytical_Balance_Manufacturer": analytical_balance_manufacturer,
+                                "Refrigerated_Centrifuge_Manufacturer": refrigerated_centrifuge_manufacturer,
+                                "pH_Meter_Manufacturer": pH_meter_manufacturer,
+                                "Platesealer_Manufacturer": platesealer_manufacturer})
+    pipetteNode = Node("Pipettes", {"Adjustable_Pipettes_Manufacturer": adjustable_pipettes_manufacturer,
+    "Pipette_Tips_Manufacturer": pipette_tips_manufacturer})
+    automationSuppNode = Node("Automation_Supplies", {"Reagent_Troughs_Provider": reagent_troughs_provider,
+    "Automated_Workstation_Tips_Provider": automated_workstation_tips_provider})
+    compoundNode = Node("Compound", {"LNumber": analyte_l_parent, "Form": form_parent, "Molecular_Weight": molecular_weight_parent, "Watson_ID": watson_id_parent})
+    epimerNode = Node("LNumber", {"Property": analyte_l_parent})
     biologicalMatrixListNode = Node("BiologicalMatrix", {
         "BP_number": bp_number,
         "Matrix": matrix,
         "Species": species,
         "Anticoagulant": anticoagulant,
-        "Extraction Method": extraction_method,
+        "Extraction_Method": extraction_method,
         "Storage_temp": anticoagulant_temperature
     })
     manufacturerNode = Node("Manufacturer", {"Name": None})
-    StandardPreparationNode = Node("BP Number", {"Property": bp_number})
-    mixedIntermediateStandardSolutionNode = Node("Mixed Intermediate Standard Solution", {"Table": table_standard_solution_id})
-    stockStandardSolutionNode = Node("Properties", {"Dilutent": dilutent, "Storage Temp": temperature_dilutent})
-    workingStandardSolutionNode = Node("Properties", {"Dilutent": dilutent, "Storage Temp": temperature_dilutent})
-    qcPreparationListNode = Node("QC Preparation", {"BP Number": bp_number})
-    stockQCSolutionNode = Node("Properties", {"Dilutent": dilutent, "Storage Temp": temperature_dilutent})
-    workingQCSolutionNode = Node("Properties", {"Dilutent": dilutent, "Storage Temp": temperature_dilutent})
-    workingQCTableNode = Node("Working QC Solution ID", {"Table": table_qc_solution_id})
-    matrixQCTableNode = Node("Matrix QC ID", {"Table": table_qc_id})
-    matrixQCNode = Node("Matrix QC", {"Table": lloq})
+    StandardPreparationNode = Node("BP_Number", {"Property": bp_number})
+    mixedIntermediateStandardSolutionNode = Node("Mixed_Intermediate_Standard_Solution", {"Table": table_standard_solution_id})
+    stockStandardSolutionNode = Node("Properties", {"Dilutent": dilutent, "Storage_Temp": temperature_dilutent})
+    workingStandardSolutionNode = Node("Properties", {"Dilutent": dilutent, "Storage_Temp": temperature_dilutent})
+    qcPreparationListNode = Node("QC_Preparation", {"BP_Number": bp_number})
+    stockQCSolutionNode = Node("Properties", {"Dilutent": dilutent, "Storage_Temp": temperature_dilutent})
+    workingQCSolutionNode = Node("Properties", {"Dilutent": dilutent, "Storage_Temp": temperature_dilutent})
+    workingQCTableNode = Node("Working_QC_Solution_ID", {"Table": table_qc_solution_id})
+    matrixQCTableNode = Node("Matrix_QC_ID", {"Table": table_qc_id})
+    matrixQCNode = Node("Matrix_QC", {"Table": lloq})
     ISPreparationListNode = Node("ISPreparation", {"BP_number": bp_number})
     stockISSolutionNode = Node("StockISSolution", {
         "Name": mk_number,
@@ -481,7 +481,7 @@ def generate_DB_content(searchString, tables, bp_number):
         "Storage": temperature_dilutent
     })
     workingISSolutionNode = Node("WorkingISSolution", {"Name": mk_number})
-    operatingParametersNode = Node("Operating Parameters", {"BP Number": bp_number})
+    operatingParametersNode = Node("Operating_Parameters", {"BP_Number": bp_number})
     UPLCParametersNode = Node("UPLCParameters", {
         "Column": column_category,
         "Loop_Option": loop_option_settings,
@@ -501,12 +501,23 @@ def generate_DB_content(searchString, tables, bp_number):
     MSParametersNode = Node("MSParameters", {
         "Ion_Source": ion_source_settings,
         "Ion_Mode": ion_mode_settings,
-        "Q1/Q3_Resolutions": None,
-        "Ionization_potential (IS)": ionization_potential_settings,
+        "Q1Q3_Resolutions": None,
+        "Ionization_potential IS": ionization_potential_settings,
         "Temperature": temperature_settings,
-        "MR pause between mass range": mr_pause_settings,
-        "MS settling time": mr_settling_time_settings
+        "MR_pause_between_mass_range": mr_pause_settings,
+        "MS_settling_time": mr_settling_time_settings
     })
+    variables = {
+    	'bp_number': bp_number, 'extraction_method': extraction_method, 'mk_number': mk_number,
+    	'turbo_ionspray': turbo_ionspray, 'polarity': polarity, 'drug_lower_mz': drug_lower_mz,
+    	'drug_upper_mz': drug_upper_mz, 'is_lower_mz': is_lower_mz, 'is_upper_mz': is_upper_mz,
+    	'lloq': lloq, 'regression_model': regression_model, 'calibration_range_lower': calibration_range_lower,
+    	'calibration_range_upper': calibration_range_upper, 'calibration_sample_volume': calibration_sample_volume,
+    	'dilutent': dilutent, 'temperature_dilutent': temperature_dilutent, 'anticoagulant': anticoagulant,
+    	'anticoagulant_temperature': anticoagulant_temperature, 'special_requirements': special_requirements,
+    	'author': author
+	}
+    print(variables)
     nodes.append(bp_node)
     nodes.append(special_requirement_node)
     nodes.append(compoundNode)
@@ -518,8 +529,8 @@ def generate_DB_content(searchString, tables, bp_number):
     nodes.append(LCComponentNode)
     nodes.append(instrumentationListNode)
     nodes.append(biologicalMatrixListNode)
-    nodes.append(reagentsListNode)
-    nodes.append(solutionsListNode)
+    # nodes.append(reagentsListNode)
+    # nodes.append(solutionsListNode)
     nodes.append(qcPreparationListNode)
     nodes.append(calculationParametersListNode)
     nodes.append(StandardPreparationNode)
@@ -560,8 +571,8 @@ def generate_DB_content(searchString, tables, bp_number):
     relationships.append(Relationship(bp_node, instrumentationNode, "USES", {}))
     relationships.append(Relationship(bp_node, suppliesListNode, 'USES', {}))
     relationships.append(Relationship(bp_node, biologicalMatrixListNode, 'USES', {}))
-    relationships.append(Relationship(bp_node, reagentsListNode, 'USES', {}))
-    relationships.append(Relationship(bp_node, solutionsListNode, 'USES', {}))
+    # relationships.append(Relationship(bp_node, reagentsListNode, 'USES', {}))
+    # relationships.append(Relationship(bp_node, solutionsListNode, 'USES', {}))
     relationships.append(Relationship(bp_node, StandardPreparationNode, 'USES', {}))
     relationships.append(Relationship(bp_node, qcPreparationListNode, 'USES', {}))
     relationships.append(Relationship(bp_node, ISPreparationListNode, 'USES', {}))
@@ -585,6 +596,8 @@ def generate_DB_content(searchString, tables, bp_number):
 def populate_db(nodes: list, rels: list):
     gm.execute(operation="wipe")
     for node in nodes:
+        print(node.label)
+        print(node.properties)
         gm.execute(operation="create_node", node=node)
     for rel in rels:
         gm.execute(operation="create_rel", rel=rel)
