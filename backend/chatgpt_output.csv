@@ -1,0 +1,20 @@
+BP Number,BP-0003
+Extraction Method,Protein precipitation
+Species,Dog
+Drug,MK-0111 (L-000000003)
+Internal Standard,Stable isotope labeled internal standard (SIL-MK-0111)
+Chromatography Type,Reversed phase liquid chromatography
+Interface,Turbo ionspray (TIS)
+Ion Mode,Positive ion mode
+MRM Transition from Drug,m/z 517.2 482.3
+MRM Transition for Internal Standard,m/z 525.2 489.2
+LLOQ,5.00 ng/mL
+1/x^2 Regression Model,Linear 1/x2 (weighting)
+Calibration Range,5.00 to 5000 ng/mL
+Anticoagulant,EDTA
+Study Samples,Plasma
+Study Sample Temperature,-70°C
+Blank matrix,centrifuge for 5 minutes at 2800 rpm
+Stabilize blank matrix daily (if applicable),centrifuge for 5 minutes at 2800 rpm
+Biological matrix samples,"vortexing, rotating and centrifuge conditions <<Vortex samples for 1 minute at 1200 rpm>> <<Rotate sample rack on lab rotator for 10 minutes at setting 40>> <<Centrifuge for 1 minute at 1200 rpm>>"
+signal:noise ratio,"20:1, peak height: 20000 cps, MK-0111: 50.0 ng/mL neat STD, procedure: Preparation 1. IS in Crash Solution Preparation (SIL-MK-0111 in ACN/H2O [50/50]) Add 500 uL of Working IS and 9.50 mL diluent (ACN/H2O [50/50]). Mix. 2. To microcentrifuge tube add: 450 uL of IS in Crash Solution 50 uL of STD 1 (50.0 ng/mL) Mix Transfer to 96-deep well plate (Siliguard 2-mL plate) Centrifuge at 1000 rpm for 1 minute at 15°C 3. Inject via autosampler"
