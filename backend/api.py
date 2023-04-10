@@ -172,8 +172,7 @@ def findAllValuesUnderColumn(searchTable, globalVars):
         return globalVars
 
 
-def generate_DB_content(searchString, tables):
-    bp_number = None
+def generate_DB_content(searchString, tables, bp_number):
     extraction_method = None
     mk_number = None
     turbo_ionspray = None
@@ -603,7 +602,7 @@ def upload_pdf(file: UploadFile = File(...)):
     searchString = re.sub(' +',' ', searchString)
     tables = generate_tables(filepath)
     print("generating db content now")
-    db_content = generate_DB_content(searchString, tables)
+    db_content = generate_DB_content(searchString, tables, filename[:7])
     print("starting db population")
     populate_db(db_content[0], db_content[1])
     os.remove(filepath)

@@ -13,8 +13,8 @@ class GraphManager:
             return "{}"
         string_props = "{"
         for k,v in props.items():
-            if isinstance(v, str):
-                string_props += k + ": '" + v + "'" + ", "
+            if isinstance(v, str) or v == None:
+                string_props += k + ": '" + str(v) + "'" + ", "
             elif isinstance(v, int) or isinstance(v, float):
                 string_props += k + ": " + v + ", "
             else:
