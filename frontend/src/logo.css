@@ -1,24 +1,26 @@
-.logo{
-    background-color: white;
-    border-radius: 50%;
-    height: 100px;
-    width: 100px;
-    border: 5px;
+.logo {
+  background-color: white;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  border: 5px;
+  margin-right: 20px;
+  /* adjust margin to move logo to the left */
 }
 
-img{
-    padding-left: 8px;
-    padding-bottom: 5px;
-    height: auto;
-    width: auto;
-    max-width: 100%;
-    max-height: 100%;
+img {
+  padding-left: 8px;
+  padding-bottom: 5px;
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
 }
 
-.logoSmall{
-    background-color: white;
-    border-radius: 50%;
-    height: 30px;
-    width: 30px;
-    border: 5px;
+.logoSmall {
+  background-color: white;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  border: 5px;
 }

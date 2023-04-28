@@ -1,41 +1,26 @@
 import './App.css';
-import Logo from './logo';
-import SearchBar from './searchBar';
-import Upload from './upload';
+import Home from './Home';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Results from './results';
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
-  const [showResults, setShowResults] = useState(false);
+  const [resultsData, setResultsData] = useState(null);
 
-  const resultsRef = useRef(null);
-
-  const renderResults = () => { //we will pass this function to the search bar component
-    setShowResults(true);
-  }
+  const renderResults = (data) => {
+    setResultsData(data);
+  };
 
   return (
-    <div className="App">
-      <div className='topBar'>
-        <div id='logo'>
-          <Logo/>
-        </div>
-        <div id="title-box">
-          <div id="title-text">Bioanalytical Procedure Database System</div>
-          <div id="sub-text">The Data Mine - Corporate Partners: Merck NLP</div>
-        </div>
-        <div id='search'>
-          <SearchBar renderResults={renderResults}/>
-        </div>
-        <div id='upload'>
-          <Upload/>
-        </div>
-        <div id='results'>
-          {showResults && <Results/>}
-        </div>
-      </div>
-    </div>
+    <Router>
+
+      <Routes>
+        <Route path="/" element={<Home renderResults={renderResults} />} />
+        <Route path="/results" element={<Results resultsData={resultsData} renderResults={renderResults} />} />
+      </Routes>
+
+    </Router>
   );
 }
 

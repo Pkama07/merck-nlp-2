@@ -1,10 +1,23 @@
 from neo4j import GraphDatabase
 from node import Node
+import os
 from relationship import Relationship
 
 class GraphManager:
 
-    def __init__(self, uri: str, username: str, password: str):
+    def __init__(self, uri: str | None = None, username: str | None = None, password: str | None = None):
+        if uri == None:
+            uri = os.getenv("NEO4J_URI")
+        if uri == None:
+            raise "No URI provided."
+        if username == None:
+            username = os.getenv("NEO4J_USERNAME")
+        if username == None:
+            raise "No username provided."
+        if password == None:
+            password = os.getenv("NEO4J_PASSWORD")
+        if password == None:
+            raise "No password provided."
         self.driver = GraphDatabase.driver(uri, auth=(username, password))
 
     
@@ -17,6 +30,8 @@ class GraphManager:
                 string_props += k + ": '" + str(v) + "'" + ", "
             elif isinstance(v, int) or isinstance(v, float):
                 string_props += k + ": " + v + ", "
+            elif isinstance(v, map):
+                continue
             else:
                 string_props += k + ": " + str(v) + ", "
         string_props = string_props[:-2]
